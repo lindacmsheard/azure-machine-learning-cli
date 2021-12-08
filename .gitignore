@@ -1,0 +1,7 @@
+.env
+.azure/
+.vscode/
+.terraform/
+*.tfstate
+config.json
+*.tfvars

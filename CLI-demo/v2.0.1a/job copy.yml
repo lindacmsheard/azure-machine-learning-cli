@@ -1,0 +1,9 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: echo "Hello $MY_VAR"
+environment:
+  docker:
+    image: python 
+environment_variables:
+  MY_VAR: "aaai people"
+compute:
+  target: azureml:cpu-cluster

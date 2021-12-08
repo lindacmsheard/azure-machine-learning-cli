@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/dataset.schema.json
+name: newbar
+version: 1
+description: An existing dataset from datastore
+datastore: azureml:sampledata
+path: faker/**

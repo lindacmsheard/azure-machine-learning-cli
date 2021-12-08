@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/compute.schema.json
+name: gpu-gluster
+type: amlcompute
+min_instances: 0
+max_instances: 4
+priority: lowpriority
+size: Standard_NC6
