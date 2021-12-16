@@ -16,8 +16,8 @@ Provision this via any of the following routes
 ## 01 Getting started with the v2 CLI and YAML schemas
 
 Start here: 
-- [CLI-demo](./CLI-demo/CLI-demo.md)
-
+- [CLI-demo](./CLI-demo/CLI-demo.md) for a basic walk through of features
+- [CLI v2 in a day](https://github.com/caiomsouza/aml-cli-v2-in-a-day) for a more in-depth tutorials
 
 
 <hr />
