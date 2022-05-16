@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
+name: sampledatastore
+account_name: lcmgexplorestoragecool
+container_name: sampledata
+credential:
+  access_key: Uw7IHvQc7IqzZzqbjyxyl4w9YzRJppWsp8CsrpQATUkgSZRR3uQ0tb0cFsZylihxJjRvuwFYKWlUA8XozRiGUQ==
+type: azure_blob

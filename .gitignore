@@ -5,3 +5,5 @@
 *.tfstate
 config.json
 *.tfvars
+*.amltmp
+*.amlignore*
