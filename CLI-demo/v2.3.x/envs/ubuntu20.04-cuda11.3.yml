@@ -3,4 +3,4 @@ name: ubuntu20_04-cuda11_3
 image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.3-cudnn8-ubuntu20.04
 conda_file: conda-yamls/pro-gan-pth.yml
 description: Environment created from a Docker image plus Conda environment.
-version: 3
+version: 4

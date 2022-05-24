@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: basic-ubuntu
+image: ubuntu/focal:latest
+description: Basic Ubuntu focal 

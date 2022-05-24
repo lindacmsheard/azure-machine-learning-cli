@@ -2,10 +2,16 @@ $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 experiment_name: environment-check
 command: |
   echo "Checking Ubuntu Version:"
-  lsb_release -a
+  uname -m
+  cat /etc/issue
+  cat /etc/os-release
   echo "Checking Python Version:"
   python --version
+  echo "Checking nvidia is available"
+  lspci | grep -i nvidia
   echo "Checking NVIDA drivers"
   nvidia-smi
 environment: azureml:ubuntu20_04-cuda11_3:3
+#environment: azureml:basic-ubuntu:1
+#environment: azureml:tensorflow_1_13_cuda10_0:1
 compute: azureml:gpu-cluster

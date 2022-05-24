@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: tensorflow_1_13_cuda10_0
+image: tensorflow/tensorflow:1.13.2-gpu-py3
+description: image from https://hub.docker.com/layers/tensorflow/tensorflow/tensorflow/1.13.2-gpu-py3/images/sha256-33895451d180d4a843169f1844c9152f976db5b185330d3d6ba47cdb67c8b80e
+version: 1
