@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: >
+  python mlflow-starter.py
+code: ../../src/mlflow
+environment: 
+  image: continuumio/miniconda3:latest
+  conda_file: ../envs/conda-yamls/mlflow-starter.yml
+compute: azureml:cpu-cluster
+display_name: mlflow-starter
+experiment_name: mlflow-starter
+description: Show how to use mlflow logging
