@@ -1,8 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 experiment_name: cliv2-job-with-var
-command: echo "Hello $MY_VAR"
+command: echo "Hello HYOSUN"
 environment:
   image: python 
-environment_variables:
-  MY_VAR: "aaai people"
 compute: azureml:cpu-cluster
