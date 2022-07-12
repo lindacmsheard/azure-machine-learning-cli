@@ -1,6 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: 
-  local_path: src/daskjob
+code: ../../src/daskjob
 command: >-
   python startDask.py
   --script prep-nyctaxi.py 
@@ -8,15 +7,15 @@ command: >-
   --output_folder ${{outputs.output_folder}}
 inputs:
   nyc_taxi_dataset:
-    folder: wasbs://datasets@azuremlexamples.blob.core.windows.net/nyctaxi/
+    path: wasbs://datasets@azuremlexamples.blob.core.windows.net/nyctaxi/
     mode: ro_mount
 outputs:
   output_folder:
-    dataset: azureml:dask_outputs:1
+    path: azureml://datastores/sampledata/paths/tmp/daskoutput/
     mode: rw_mount
 environment: 
   image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
-  conda_file: envs/daskjob-conda.yml
+  conda_file: ../envs/conda-yamls/daskjob-conda.yml
 compute: azureml:dask-cluster
 resources:
   instance_count: 4
