@@ -1,0 +1,8 @@
+name: opencv
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8
+- imutils
+- opencv

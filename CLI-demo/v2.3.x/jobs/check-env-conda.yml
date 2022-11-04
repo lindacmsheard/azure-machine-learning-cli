@@ -1,0 +1,19 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+experiment_name: environment-check
+description: also check the conda environment
+command: |
+  echo "Checking Ubuntu Version:"
+  uname -m
+  cat /etc/issue
+  cat /etc/os-release
+  echo "Checking Python Version:"
+  python --version
+  echo "Checking nvidia is available"
+  lspci | grep -i nvidia
+  echo "Checking NVIDA drivers"
+  nvidia-smi
+  conda --version
+  conda env list
+  conda list >> outputs/conda.txt
+environment: azureml:pytorch-1_10-ubuntu18_04-py38-cuda11-gpu-with-rasterio:1
+compute: azureml:gpu-cluster

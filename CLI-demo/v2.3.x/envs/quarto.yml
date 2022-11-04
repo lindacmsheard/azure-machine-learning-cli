@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-name: TF_1_13_env
+name: quarto_env
 build:
-  path: ./docker-context/tf1_13
+  path: ./docker-context/quarto
   dockerfile_path: Dockerfile
-version: 3
+version: 1

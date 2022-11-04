@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: parallel-job-environment-with-pillow
+image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+conda_file: ./conda-yamls/prs_env_pillow.yml
+description: Image for parallel Run step exectuion with basic image processing.
+version: 2

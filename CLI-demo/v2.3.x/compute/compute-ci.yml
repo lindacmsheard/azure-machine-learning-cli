@@ -1,5 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json
-name: myDS2
+name: myDS3ci
 type: computeinstance
-size: Standard_DS2_v2
-description: "just a quick test"
+size: Standard_DS3_v2
+description: "quick demo"

@@ -9,7 +9,7 @@ inputs:
     type: uri_file
 environment:
   build:
-    path: ../docker-context/r
+    path: ../envs/docker-context/r
     dockerfile_path: Dockerfile
 compute: azureml:cpu-cluster
 display_name: r-iris-example
