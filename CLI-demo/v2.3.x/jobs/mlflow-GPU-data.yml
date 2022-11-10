@@ -1,0 +1,40 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: |
+  echo "Checking Ubuntu Version:"
+  uname -m
+  cat /etc/issue
+  cat /etc/os-release
+  echo "Checking Python Version:"
+  python --version
+  echo "Checking nvidia is available"
+  lspci | grep -i nvidia
+  echo "Checking NVIDA drivers"
+  nvidia-smi
+  echo "\nPlaying back inputs:"
+  echo ${{inputs.mystr}}
+  echo ${{inputs.myval}}
+  echo ${{inputs.my_priv_data}}
+  ls ${{inputs.my_priv_data}}
+  python mlflow-withdata.py --iris-csv ${{inputs.iris_public}} --my-data ${{inputs.my_priv_data}}
+code: ../../src/mlflow
+environment: azureml:AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu@latest
+  #image: mcr.microsoft.com/azureml/curated/acpt-pytorch-1.12-py38-cuda11.6-gpu:latest
+  #conda_file: ../envs/conda-yamls/mlflow-withdata.yml
+compute: azureml:gpu-cluster
+inputs:
+  mystr: "foo"
+  myval: 5
+  iris_public: 
+    path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    type: uri_file
+  my_priv_data:
+    mode: ro_mount
+    path: azureml://datastores/azuregigdatalake_bronze/paths/geotiff/planet/skysat50cm/
+    type: uri_folder
+  # my_reg_data: 
+  #   mode: ro_mount
+  #   type: uri_folder
+  #   path: azureml:Sentinel-2-Sample-UKnorth:2
+display_name: mlflow-withdata
+experiment_name: mlflow-withdata-GPU
+description: Show how to use mlflow logging with data

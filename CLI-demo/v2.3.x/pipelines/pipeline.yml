@@ -1,8 +1,8 @@
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
 
-experiment_name: cli-v2-pipelines-demo-BSI
-display_name: first run
+experiment_name: cli-v2-pipelines-demo-MO
+display_name: first run- really
 description: Pipeline with 3 component jobs with data dependencies, executing on different compute
 
 settings:
@@ -31,12 +31,12 @@ jobs:
     inputs:
       component_a_input_data:
         type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
         mode: ro_mount
     outputs: 
       component_a_output_data:     
         mode: rw_mount
-    compute: azureml:ds3-git
+    compute: azureml:ds2-git
 
   rotate:
     type: command
@@ -44,7 +44,7 @@ jobs:
     inputs:
       image_folder:
         type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
         mode: ro_mount
       degrees: 180
     outputs:

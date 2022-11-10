@@ -16,6 +16,7 @@ def parse_args():
 
     # add arguments
     parser.add_argument("--iris-csv", type=str)
+    parser.add_argument("--my-data", type=str)
 
     # parse args
     args = parser.parse_args()
@@ -38,7 +39,7 @@ def main(args):
     df = pd.read_csv(args.iris_csv)
 
     # print first 5 lines
-    print(df.head())
+    print(df.head(6))
 
     # ensure outputs directory exists 
     # The ./outputs and ./logs directories receive special treatment by Azure Machine Learning. 
@@ -48,8 +49,12 @@ def main(args):
     # in real time. Use the latter if you want to stream logs during the job, such as 
     # TensorBoard logs.
 
-    os.makedirs("outputs", exist_ok=True)
-    os.makedirs("logs", exist_ok=True)
+    #os.makedirs("outputs", exist_ok=True)
+    #os.makedirs("mylogs", exist_ok=True)
+
+
+    os.system(f"ls . > listdir.txt")
+    mlflow.log_artifact("listdir.txt")
 
 
     # save data to outputs
@@ -61,7 +66,7 @@ def main(args):
     
     files = os.listdir(args.my_data)
 
-    with open('logs/mylog.txt') as f:
+    with open('user_logs/mylog.txt', 'w') as f:
         f.write(f'local mount: {args.my_data}\n')
         f.write(f"{files}")
 
