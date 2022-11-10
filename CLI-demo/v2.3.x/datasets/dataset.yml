@@ -1,6 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/dataset.schema.json
-name: newfoo
-version: 3
-local_path: ../data.csv
-description: A dataset uploaded from local
-datastore: azureml:sampledata
