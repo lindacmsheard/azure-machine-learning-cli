@@ -5,7 +5,7 @@ command: |
   echo ${{inputs.my_priv_data}}
   ls ${{inputs.my_priv_data}}
   python mlflow-withdata.py --iris-csv ${{inputs.iris_public}} --my-data ${{inputs.my_priv_data}}
-code: ../../src/mlflow
+code: ../src/mlflow
 environment: 
   image: continuumio/miniconda3:latest
   conda_file: ../envs/conda-yamls/mlflow-withdata.yml
