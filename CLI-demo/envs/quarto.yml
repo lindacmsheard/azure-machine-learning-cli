@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: quarto_env
+build:
+  path: ./docker-context/quarto
+  dockerfile_path: Dockerfile
+version: 1

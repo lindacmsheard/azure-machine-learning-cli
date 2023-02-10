@@ -1,0 +1,62 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+experiment_name: cli-v2-pipelines-demo
+display_name: pipeline_with reorganised components
+description: Pipeline with 3 component jobs with data dependencies, executing on different compute
+
+settings:
+  default_compute: azureml:cpu-cluster
+
+outputs:
+  final_pipeline_output:
+    type: uri_folder
+    path: azureml://datastores/azuregigdatalake_bronze/paths/jpg/roads
+    mode: rw_mount
+
+jobs:
+
+  # check_env:
+  #   type: command
+  #   component:
+  #     environment: azureml:AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu@latest
+  #     command: |
+  #       pwd
+  #       conda list >> outputs/conda-check.txt
+  #   compute: azureml:gpu-cluster
+
+  sample_component:
+    type: command
+    component: file:../components/sample_component/definition.yml
+    inputs:
+      component_a_input_data:
+        type: uri_folder
+        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        mode: ro_mount
+    outputs: 
+      component_a_output_data:     
+        mode: rw_mount
+    compute: azureml:ds3-git
+
+  rotate:
+    type: command
+    component: file:../components/rotate_img/definition.yml
+    inputs:
+      image_folder:
+        type: uri_folder
+        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        mode: ro_mount
+      degrees: 180
+    outputs:
+      output_folder:
+        mode: rw_mount
+      
+  compress:
+    type: command
+    component: file:../components/compress_img/definition.yml
+    inputs:
+      image_folder: ${{parent.jobs.rotate.outputs.output_folder}}
+      new_size_ratio: 0.5
+    outputs:
+      output_folder: ${{parent.outputs.final_pipeline_output}}
+      #  mode: upload

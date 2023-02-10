@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: TF_1_13_env
+build:
+  path: ./docker-context/tf1_13
+  dockerfile_path: Dockerfile
+version: 3

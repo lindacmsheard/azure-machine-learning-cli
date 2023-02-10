@@ -1,0 +1,101 @@
+# export AZURE_ML_CLI_PRIVATE_FEATURES_ENABLED=true
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+experiment_name: cli-v2-pipelines-demo
+display_name: pipeline_with reorganised components
+description: Pipeline with 3 component jobs with data dependencies, executing on different compute
+
+settings:
+  default_compute: azureml:cpu-cluster
+
+outputs:
+  final_pipeline_output:
+    type: uri_folder
+    path: azureml://datastores/azuregigdatalake_bronze/paths/jpg/roads
+    mode: rw_mount
+  parallel_output:
+    type: uri_file
+    path: azureml://datastores/azuregigdatalake_bronze/paths/jpg/minibatches.txt
+
+jobs:
+
+  check_env:
+    type: command
+    environment:           
+      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+      conda_file: ../envs/conda-yamls/prs_mnist-inference.yml
+    command: |
+      conda list >> outputs/conda-check.txt
+
+  sample_component:
+    type: command
+    component: file:../components/sample_component/definition.yml
+    inputs:
+      component_a_input_data:
+        type: uri_folder
+        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        mode: ro_mount
+    outputs: 
+      component_a_output_data:     
+        mode: rw_mount
+    compute: azureml:ds3-git
+
+  rotate:
+    type: command
+    component: file:../components/rotate_img/definition.yml
+    inputs:
+      image_folder:
+        type: uri_folder
+        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        mode: ro_mount
+      degrees: 180
+    outputs:
+      output_folder:
+        mode: rw_mount
+      
+  compress:
+    type: command
+    component: file:../components/compress_img/definition.yml
+    inputs:
+      image_folder: ${{parent.jobs.rotate.outputs.output_folder}}
+      new_size_ratio: 1.1
+      width: 16
+      height: 16
+    outputs:
+      output_folder: #${{parent.outputs.final_pipeline_output}}
+        mode: rw_mount 
+        
+      #  mode: upload
+    
+  do_something_parallel: #PipelineParallelJobSchema (no component) or #ParallelSchema (with component) ComponentParallelTaskSchema?
+    type: parallel
+    inputs:
+      image_folder: ${{parent.jobs.compress.outputs.output_folder}}
+      score_model:
+        type: uri_folder
+        path: ./models/mnist_model
+        mode: download
+    outputs:
+      batch_output_file: ${{parent.outputs.parallel_output}}
+    compute: azureml:cpu-cluster
+    resources: 
+      instance_count: 2
+
+    input_data: ${{inputs.image_folder}}
+    mini_batch_size: "5"
+    max_concurrency_per_instance: 2
+    retry_settings:
+      max_retries: 2
+      timeout: 60
+  
+    task: #ComponentParallelTaskSchema
+      type: function
+      code: ./src
+      entry_script: digit_identification.py
+      environment:
+        image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+        conda_file: ../envs/conda-yamls/prs_mnist-inference.yml
+      args: >-
+        --model ${{inputs.score_model}}
+      append_row_to: ${{outputs.batch_output_file}}

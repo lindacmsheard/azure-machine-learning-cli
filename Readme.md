@@ -32,3 +32,5 @@ Start here:
 
 - [AI School](https://www.microsoft.com/en-us/ai/ai-school)
 - [AI for Beginners](https://dev.to/azure/announcing-a-new-free-curriculum-machine-learning-for-beginners-1h58)
+
+

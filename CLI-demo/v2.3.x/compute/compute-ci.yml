@@ -1,5 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json
-name: myDS2
-type: computeinstance
-size: Standard_DS2_v2
-description: "just a quick test"

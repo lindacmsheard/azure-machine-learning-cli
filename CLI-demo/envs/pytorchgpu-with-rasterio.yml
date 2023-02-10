@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: pytorch-1_10-ubuntu18_04-py38-cuda11-gpu-with-rasterio
+image: mcr.microsoft.com/azureml/curated/pytorch-1.10-ubuntu18.04-py38-cuda11-gpu:29
+conda_file: conda-yamls/rasterio.yml
+description: Environment created from a Docker image plus Conda environment.

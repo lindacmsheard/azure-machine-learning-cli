@@ -1,7 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/compute.schema.json
-name: myOtherDS3
-type: computeinstance
-size: Standard_DS2_v2
-enable_public_ip: true
-ssh_public_access: "True"
-ssh_key_value: file:../../../../.ssh/id_rsa_vms.pub

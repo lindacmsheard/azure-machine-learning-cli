@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: basic-demo
+image: continuumio/miniconda3:latest
+conda_file: ../envs/conda-yamls/mlflow-starter.yml

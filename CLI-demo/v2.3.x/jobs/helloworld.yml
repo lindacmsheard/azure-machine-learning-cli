@@ -1,6 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-experiment_name: cliv2-hello-world
-command: echo "hello world"
-environment:
-  image: library/python:latest
-compute: azureml:myDS2
