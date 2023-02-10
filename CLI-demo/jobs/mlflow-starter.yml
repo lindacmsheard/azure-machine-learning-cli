@@ -6,6 +6,6 @@ environment: #azureml:basic-demo@latest
   image: continuumio/miniconda3:latest
   conda_file: ../envs/conda-yamls/mlflow-starter.yml
 compute: azureml:cpu-cluster
-display_name: mlflow-starter
+display_name: mlflow-starter-my-first-run
 experiment_name: mlflow-starter
 description: Show how to use mlflow logging

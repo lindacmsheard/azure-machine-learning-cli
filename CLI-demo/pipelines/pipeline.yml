@@ -36,7 +36,7 @@ jobs:
     outputs: 
       component_a_output_data:     
         mode: rw_mount
-    compute: azureml:ds2-git
+    #compute: azureml:ds2-git
 
   rotate:
     type: command
@@ -44,7 +44,7 @@ jobs:
     inputs:
       image_folder:
         type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
+        path: azureml://datastores/sampledata/paths/component-demo # ./testsampledata
         mode: ro_mount
       degrees: 180
     outputs:

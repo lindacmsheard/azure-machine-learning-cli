@@ -4,7 +4,7 @@ command: |
   echo ${{inputs.myval}}
   echo ${{inputs.my_priv_data}}
   ls ${{inputs.my_priv_data}}
-  python mlflow-withdata.py --iris-csv ${{inputs.iris_public}} --my-data ${{inputs.my_priv_data}}
+  python mlflow-withdata.py --iris-csv ${{inputs.iris_public}} --priv-data ${{inputs.my_priv_data}}
 code: ../src/mlflow
 environment: 
   image: continuumio/miniconda3:latest
@@ -18,7 +18,7 @@ inputs:
     type: uri_file
   my_priv_data:
     mode: ro_mount
-    path: azureml://datastores/azuregigdatalake_bronze/paths/geotiff/planet/skysat50cm/
+    path: azureml://datastores/azuregigdatalake_bronze/paths/jpg/roads
     type: uri_folder
   # my_reg_data: 
   #   mode: ro_mount

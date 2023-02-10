@@ -16,7 +16,8 @@ def parse_args():
 
     # add arguments
     parser.add_argument("--iris-csv", type=str)
-
+  # add arguments
+    parser.add_argument("--priv-data", type=str)
     # parse args
     args = parser.parse_args()
 
@@ -36,6 +37,10 @@ def main(args):
 
     # read in data
     df = pd.read_csv(args.iris_csv)
+
+    print("mounted directory")
+    print(f"available at {args.priv_data}")
+    print(os.listdir(args.priv_data))
 
     # print first 5 lines
     print(df.head())

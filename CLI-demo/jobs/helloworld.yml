@@ -3,4 +3,4 @@ experiment_name: cliv2-hello-world
 command: echo "hello world"
 environment:
   image: python
-compute: azureml:myDS2
+compute: azureml:cpu-cluster
