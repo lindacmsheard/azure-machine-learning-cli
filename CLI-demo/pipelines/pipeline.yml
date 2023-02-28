@@ -40,7 +40,8 @@ jobs:
 
   rotate:
     type: command
-    component: file:../components/rotate_img/definition.yml
+    #component: file:../components/rotate_img/definition.yml
+    component: azureml:rotate_images:1
     inputs:
       image_folder:
         type: uri_folder
