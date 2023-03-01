@@ -20,8 +20,10 @@ code: ./src
 environment: 
   image: python
 
-command: >-
-  python hello.py  
-  --input_data ${{inputs.component_a_input_data}}
-  --input_string ${{inputs.sample_input_string}}
+command: | 
+  mkdir outputs
+  printenv >> outputs/env.txt
+  python hello.py  \
+  --input_data ${{inputs.component_a_input_data}} \
+  --input_string ${{inputs.sample_input_string}} \
   --output_data ${{outputs.component_a_output_data}}
