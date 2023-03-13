@@ -1,0 +1,34 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+experiment_name: environment-check
+compute: azureml:gpu-cluster
+environment: azureml:AzureML-ACPT-pytorch-1.13-py38-cuda11.7-gpu@latest
+#environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+#environment: azureml:ubuntu20_04-cuda11_3:3
+#environment: azureml:basic-ubuntu:1
+#environment: azureml:tensorflow_1_13_cuda10_0:1
+environment_variables:
+  MY_TEST_VAR: "foo"
+code: ../src/pytorch_geometric/
+command: |
+  echo "Checking Ubuntu Version:"
+  uname -m
+  cat /etc/issue
+  cat /etc/os-release
+  echo "\n\n--------"
+  echo "Checking Python Version:"
+  python --version
+  echo "\n\n--------"
+  echo "Listing Environment variables"
+  mkdir outputs
+  printenv >> outputs/env.txt
+  echo "\n\n--------"
+  echo "logging conda packages"
+  conda list >> outputs/conda.txt
+  echo "\n\n--------"
+  echo "Checking nvidia is available"
+  lspci | grep -i nvidia
+  echo "Checking NVIDA drivers"
+  nvidia-smi
+  echo "\n\n--------"
+  echo "Running python script"
+  python pytorchgeom.py
