@@ -25,40 +25,87 @@ jobs:
   #       conda list >> outputs/conda-check.txt
   #   compute: gpu-cluster
 
-  sample_component:
-    type: command
-    component: file:../components/sample_component/definition.yml
-    inputs:
-      component_a_input_data:
-        type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
-        mode: ro_mount
-    outputs: 
-      component_a_output_data:     
-        mode: rw_mount
-    compute: azureml:ds2-git
+  # sample_component:
+  #   type: command
+  #   component: file:../components/sample_component/definition.yml
+  #   inputs:
+  #     component_a_input_data:
+  #       type: uri_folder
+  #       path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
+  #       mode: ro_mount
+  #   outputs: 
+  #     component_a_output_data:     
+  #       mode: rw_mount
+  #   environment_variables:
+  #     MY_IPO_VAR: "foo"
+  #   compute: azureml:cpu-cluster
 
-  rotate:
-    type: command
-    component: file:../components/rotate_img/definition.yml
+  batch_prediction:
+    type: parallel
+    compute: azureml:cpu-cluster
     inputs:
-      image_folder:
+      input_data:  
+        path: azureml://datastores/azuregigdatalake_bronze/paths/csv/OS/addressbase/sample/
         type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
         mode: ro_mount
-      degrees: 180
     outputs:
-      output_folder:
+      job_output_file:
+        type: uri_file
         mode: rw_mount
+
+    input_data: ${{inputs.input_data}}
+    mini_batch_size: "10kb"
+    resources:
+        instance_count: 2
+    max_concurrency_per_instance: 2
+
+    logging_level: "DEBUG"
+    mini_batch_error_threshold: 5
+    retry_settings:
+      max_retries: 2
+      timeout: 60
+    environment_variables:
+      MY_ENV_VAR: "foobar"
+
+    task:
+      type: run_function
+      code: "./src/"
+      entry_script: minibatch_debug.py
+      environment: 
+        image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+        conda_file: ../envs/conda-yamls/prs_env_var.yml
+      program_arguments: >-
+        --error_threshold 5
+        --allowed_failed_percent 30
+        --task_overhead_timeout 1200
+        --progress_update_timeout 600
+        --first_task_creation_timeout 600
+        --copy_logs_to_parent True
+        --resource_monitor_interva 20
+      append_row_to: ${{outputs.job_output_file}}
+
+  # rotate:
+  #   type: command
+  #   #component: file:../components/rotate_img/definition.yml
+  #   component: azureml:rotate_images:1
+  #   inputs:
+  #     image_folder:
+  #       type: uri_folder
+  #       path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
+  #       mode: ro_mount
+  #     degrees: 180
+  #   outputs:
+  #     output_folder:
+  #       mode: rw_mount
       
-  compress:
-    type: command
-    component: file:../components/compress_img/definition.yml
-    inputs:
-      image_folder: ${{parent.jobs.rotate.outputs.output_folder}}
-      new_size_ratio: 1.1
-      width: 16
-      height: 16
-    outputs:
-      output_folder: ${{parent.outputs.final_pipeline_output}}
-      #  mode: upload
+  # compress:
+  #   type: command
+  #   component: file:../components/compress_img/definition.yml
+  #   inputs:
+  #     image_folder: ${{parent.jobs.rotate.outputs.output_folder}}
+  #     new_size_ratio: 1.1
+  #     width: 16
+  #     height: 16
+  #   outputs:
+  #     output_folder: ${{parent.outputs.final_pipeline_output}}
+  #     #  mode: upload
