@@ -1,0 +1,68 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+display_name: get_planetary_computer_data
+experiment_name: hello-world-parallel-job
+description: The hello world pipeline job with partition by key
+tags:
+  type: demo
+  owner: azuregig
+
+# inputs:
+#   custom_node_count: 3
+
+settings:
+  default_compute: azureml:cpu-cluster
+
+jobs:
+  get_asset_urls:
+    # todo - could set this up to output a partitioned mltable as output.
+    type: command
+    component: ../components/get_planetary_asset_urls/definition.yml
+    
+    inputs:
+      aoi: '"[[[-148.56536865234375, 60.80072385643073], [-147.44338989257812, 60.80072385643073], [-147.44338989257812, 61.18363894915102], [-148.56536865234375, 61.18363894915102], [-148.56536865234375, 60.80072385643073]]]"' 
+      aoi-type: "Polygon" 
+      toi: "2019-06-01/2019-08-01" 
+      collections: '"[\"sentinel-2-l2a\"]"' 
+      query: '"{\"eo:cloud_cover\": {\"lt\": 10}}"'
+    outputs:
+      output_location: 
+        type: uri_folder
+        path: azureml://datastores/azuregigdatalake_bronze/paths/tmp/pc_hrefs
+
+  # parallel_train:
+  #   type: parallel
+  #   # Load parallel component from local yaml definition
+  #   component: ./src/parallel_train_component/parallel_train.yml
+  #   # Use the following line to load component from your workspace. 
+  #   # component: azureml:<component_name>:<component_version>
+
+  #   compute: azureml:cpu-cluster
+  #   inputs:
+  #     data_source: 
+  #       path: ${{parent.jobs.partition_job.outputs.tabular_output_data}}
+  #       mode: direct
+  #     drop_cols: "Revenue,Advert,Store,Brand"
+  #     target_col: "Quantity"
+  #     date_col: "WeekStarting"
+  #   outputs:
+  #     model_folder:
+  #       mode: rw_mount
+    
+  #   environment_variables:
+  #     "AZUREML_PARALLEL_EXAMPLE": "1a_yaml"
+    
+  #   # Override parallel component run settings in this job.
+  #   mini_batch_error_threshold: 10
+  #   max_concurrency_per_instance: 3
+  #   retry_settings:
+  #     max_retries: 5
+
+  #   # User can also define dynamic value by binding to pipeline primitive input. 
+  #   resources:
+  #     instance_count: ${{parent.inputs.custom_node_count}}
+
+    
+
+
+

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/8fd0f3d53c1f4baab6db82b1f0961fd4/artifacts
+end_time: 1683831129670
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8fd0f3d53c1f4baab6db82b1f0961fd4
+run_name: casual-seal-353
+run_uuid: 8fd0f3d53c1f4baab6db82b1f0961fd4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683831129256
+status: 3
+tags: []
+user_id: lisheard

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/b5774d58728d4801811174c01ac600bd/artifacts
+end_time: 1683830933330
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b5774d58728d4801811174c01ac600bd
+run_name: luxuriant-shad-941
+run_uuid: b5774d58728d4801811174c01ac600bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683830932924
+status: 3
+tags: []
+user_id: lisheard

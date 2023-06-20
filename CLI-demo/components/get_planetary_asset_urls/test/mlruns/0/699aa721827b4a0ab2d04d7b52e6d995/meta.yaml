@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/699aa721827b4a0ab2d04d7b52e6d995/artifacts
+end_time: 1683829937195
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 699aa721827b4a0ab2d04d7b52e6d995
+run_name: nosy-gnu-778
+run_uuid: 699aa721827b4a0ab2d04d7b52e6d995
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683829936310
+status: 3
+tags: []
+user_id: lisheard

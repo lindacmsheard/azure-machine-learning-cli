@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/576354d15b7e4e16b6957bbbb0e4140a/artifacts
+end_time: 1683830382357
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 576354d15b7e4e16b6957bbbb0e4140a
+run_name: treasured-roo-20
+run_uuid: 576354d15b7e4e16b6957bbbb0e4140a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683830381791
+status: 3
+tags: []
+user_id: lisheard

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/92dd103c4e2b47b9afdbe282f1e5daef/artifacts
+end_time: 1683835004956
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 92dd103c4e2b47b9afdbe282f1e5daef
+run_name: ambitious-bat-68
+run_uuid: 92dd103c4e2b47b9afdbe282f1e5daef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683835004156
+status: 3
+tags: []
+user_id: lisheard

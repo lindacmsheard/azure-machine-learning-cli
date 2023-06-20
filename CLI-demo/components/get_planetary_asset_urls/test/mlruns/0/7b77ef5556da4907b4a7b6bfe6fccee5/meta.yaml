@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/7b77ef5556da4907b4a7b6bfe6fccee5/artifacts
+end_time: 1683835856604
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7b77ef5556da4907b4a7b6bfe6fccee5
+run_name: debonair-skunk-53
+run_uuid: 7b77ef5556da4907b4a7b6bfe6fccee5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683835855588
+status: 3
+tags: []
+user_id: lisheard

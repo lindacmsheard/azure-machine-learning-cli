@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/a6fbf663b3cc41498bedebdf98306318/artifacts
+end_time: 1683833431055
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a6fbf663b3cc41498bedebdf98306318
+run_name: upset-croc-234
+run_uuid: a6fbf663b3cc41498bedebdf98306318
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683833430223
+status: 3
+tags: []
+user_id: lisheard

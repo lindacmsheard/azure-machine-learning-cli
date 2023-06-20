@@ -1,0 +1,37 @@
+$schema: https://azuremlschemas.azureedge.net/latest/parallelComponent.schema.json
+type: parallel
+name: parallel_fetch
+display_name: Fetch partitioned mltable data in parallel
+version: 1
+
+inputs:
+  data_source:
+    type: uri_file
+    mode: direct
+outputs:
+  output_folder:
+    type: uri_folder
+    mode: rw_mount
+
+# partition_keys:
+#   - Store
+#   - Brand
+
+error_threshold: -1
+mini_batch_error_threshold: 10
+logging_level: "INFO"
+input_data: ${{inputs.data_source}}
+max_concurrency_per_instance: 2
+retry_settings:
+  max_retries: 2
+  timeout: 60
+
+task:
+  type: run_function
+  code: ./src
+  entry_script: download.py
+  environment:
+    image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+
+  program_arguments: >-
+    --output_folder ${{outputs.output_folder}}

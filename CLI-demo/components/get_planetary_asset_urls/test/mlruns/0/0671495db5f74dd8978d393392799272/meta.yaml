@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/0671495db5f74dd8978d393392799272/artifacts
+end_time: 1683833486520
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0671495db5f74dd8978d393392799272
+run_name: handsome-gnat-666
+run_uuid: 0671495db5f74dd8978d393392799272
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683833485701
+status: 3
+tags: []
+user_id: lisheard

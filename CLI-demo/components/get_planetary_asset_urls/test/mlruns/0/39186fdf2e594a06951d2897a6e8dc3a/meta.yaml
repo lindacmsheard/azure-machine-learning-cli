@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/39186fdf2e594a06951d2897a6e8dc3a/artifacts
+end_time: 1683836209598
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 39186fdf2e594a06951d2897a6e8dc3a
+run_name: bold-midge-77
+run_uuid: 39186fdf2e594a06951d2897a6e8dc3a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683836208475
+status: 3
+tags: []
+user_id: lisheard

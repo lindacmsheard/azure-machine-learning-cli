@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/5acd1e19dc114c8aac6d308361527ae2/artifacts
+end_time: 1683829664881
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5acd1e19dc114c8aac6d308361527ae2
+run_name: enchanting-wren-882
+run_uuid: 5acd1e19dc114c8aac6d308361527ae2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683829663522
+status: 3
+tags: []
+user_id: lisheard

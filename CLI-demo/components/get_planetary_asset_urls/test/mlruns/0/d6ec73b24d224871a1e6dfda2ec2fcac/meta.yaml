@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/d6ec73b24d224871a1e6dfda2ec2fcac/artifacts
+end_time: 1683834043965
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d6ec73b24d224871a1e6dfda2ec2fcac
+run_name: rare-cow-73
+run_uuid: d6ec73b24d224871a1e6dfda2ec2fcac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683834043125
+status: 3
+tags: []
+user_id: lisheard

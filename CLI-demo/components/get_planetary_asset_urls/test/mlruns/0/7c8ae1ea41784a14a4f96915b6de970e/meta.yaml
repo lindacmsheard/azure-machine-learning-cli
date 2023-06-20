@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/7c8ae1ea41784a14a4f96915b6de970e/artifacts
+end_time: 1683836013208
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7c8ae1ea41784a14a4f96915b6de970e
+run_name: delightful-foal-58
+run_uuid: 7c8ae1ea41784a14a4f96915b6de970e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683836012311
+status: 3
+tags: []
+user_id: lisheard

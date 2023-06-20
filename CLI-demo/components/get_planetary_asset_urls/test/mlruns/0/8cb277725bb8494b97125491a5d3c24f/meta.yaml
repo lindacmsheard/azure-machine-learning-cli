@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/8cb277725bb8494b97125491a5d3c24f/artifacts
+end_time: 1683836106806
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8cb277725bb8494b97125491a5d3c24f
+run_name: able-goose-702
+run_uuid: 8cb277725bb8494b97125491a5d3c24f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683836105939
+status: 3
+tags: []
+user_id: lisheard

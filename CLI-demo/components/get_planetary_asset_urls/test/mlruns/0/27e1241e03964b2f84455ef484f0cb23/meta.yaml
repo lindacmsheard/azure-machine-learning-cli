@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/27e1241e03964b2f84455ef484f0cb23/artifacts
+end_time: 1683833287956
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 27e1241e03964b2f84455ef484f0cb23
+run_name: amusing-sheep-345
+run_uuid: 27e1241e03964b2f84455ef484f0cb23
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683833287300
+status: 3
+tags: []
+user_id: lisheard

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/1290c6acb51c4874828a5cd6e56932ad/artifacts
+end_time: 1683836255808
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1290c6acb51c4874828a5cd6e56932ad
+run_name: awesome-vole-751
+run_uuid: 1290c6acb51c4874828a5cd6e56932ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683836254856
+status: 3
+tags: []
+user_id: lisheard

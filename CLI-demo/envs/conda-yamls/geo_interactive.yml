@@ -1,0 +1,14 @@
+name: planetary_computer
+channels: 
+- defaults
+- conda-forge
+dependencies:
+- python==3.8
+- ipykernel
+- rasterio
+- matplotlib
+- pillow
+- pip
+- pip:
+  - planetary-computer
+  - pystac-client

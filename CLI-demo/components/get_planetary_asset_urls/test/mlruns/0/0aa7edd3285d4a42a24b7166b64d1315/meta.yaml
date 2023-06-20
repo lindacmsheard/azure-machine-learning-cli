@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/0aa7edd3285d4a42a24b7166b64d1315/artifacts
+end_time: 1683829898912
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0aa7edd3285d4a42a24b7166b64d1315
+run_name: whimsical-fish-105
+run_uuid: 0aa7edd3285d4a42a24b7166b64d1315
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683829898906
+status: 3
+tags: []
+user_id: lisheard

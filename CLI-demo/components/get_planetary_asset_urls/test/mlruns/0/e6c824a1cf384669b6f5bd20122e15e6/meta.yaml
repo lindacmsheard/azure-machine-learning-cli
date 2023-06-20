@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/get_planetary_data/test/mlruns/0/e6c824a1cf384669b6f5bd20122e15e6/artifacts
+end_time: 1683832040064
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e6c824a1cf384669b6f5bd20122e15e6
+run_name: defiant-dog-725
+run_uuid: e6c824a1cf384669b6f5bd20122e15e6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683832039630
+status: 3
+tags: []
+user_id: lisheard
