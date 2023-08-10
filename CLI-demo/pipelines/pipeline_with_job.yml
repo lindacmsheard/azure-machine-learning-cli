@@ -31,20 +31,21 @@ jobs:
     inputs:
       component_a_input_data:
         type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
         mode: ro_mount
     outputs: 
       component_a_output_data:     
         mode: rw_mount
-    compute: azureml:ds3-git
+    compute: azureml:ds2-git
 
   rotate:
     type: command
-    component: file:../components/rotate_img/definition.yml
+    component: azureml:rotate_images:1
+    #component: file:../components/rotate_img/definition.yml
     inputs:
       image_folder:
         type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/temp_experiments/customvisionlabelled-test # ./testsampledata
+        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
         mode: ro_mount
       degrees: 180
     outputs:
