@@ -17,10 +17,10 @@ command: |
   ls ${{inputs.my_priv_data}}
   python mlflow-withdata.py --iris-csv ${{inputs.iris_public}} --my-data ${{inputs.my_priv_data}}
 code: ../../src/mlflow
-environment: azureml:AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu@latest
+environment: azureml:AzureML-ACPT-pytorch-1.13-py38-cuda11.7-gpu@latest
   #image: mcr.microsoft.com/azureml/curated/acpt-pytorch-1.12-py38-cuda11.6-gpu:latest
   #conda_file: ../envs/conda-yamls/mlflow-withdata.yml
-compute: azureml:gpu-cluster
+compute: azureml:DefLabelNC4asT4v3
 inputs:
   mystr: "foo"
   myval: 5

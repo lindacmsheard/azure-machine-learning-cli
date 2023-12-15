@@ -1,0 +1,53 @@
+# sample from https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-pipeline?view=azureml-api-2#yaml-inputoutput-dependency
+# strongly recommend editing in VSCode with schema verification plugins
+
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+display_name: hello_pipeline_io
+
+# demonstrating two types of input:
+# one as a direct reference to public data
+# antother with a dependency on an existing datastore (adapt for your use case), and set up to mount as a whole folder
+
+inputs:
+  my_public_data:
+    type: uri_file
+    mode: direct
+    path: abfss://datasets@azuremlexamples.blob.core.windows.net/data/titanic.csv
+  my_own_data:
+    type: uri_folder
+    mode: ro_mount     # read_only mount
+    path: azureml://datastores/azuregigdatalake_bronze/paths/emulators/OS/dsaadev2storage/folsd-buildings-land-water/
+
+
+jobs:
+
+  job_1_python:
+    inputs:
+      my_csv: ${{parent.inputs.my_public_data}}
+      my_data: ${{parent.inputs.my_public_data}}
+    environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+    compute: azureml:cpu-cluster
+    # upload the directory containing my_script.py (becomes working directory) so we can execute it below:
+    code: ./src   # path relative to this file
+    outputs:
+      my_custom_output:
+        type: uri_folder
+        mode: rw_mount    # rw_mount ensures this is writeable
+        path: azureml://datastores/azuregigdatalake_bronze/paths/csv/demo/
+    command: >-           # this symbol means intepret the following as one line
+      python my_script.py
+        --iris-csv ${{inputs.my_csv}}
+        --my-data ${{inputs.my_data}}
+        --my-output-location ${{outputs.my_custom_output}}
+
+  job_2_shell:
+    inputs:
+      prev_step_output: ${{parent.jobs.job_1_python.outputs.my_custom_output}}
+    environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:36
+    compute: azureml:cpu-cluster
+    command: |           # pipe symbol means execute all lines below
+      echo "listing input directory, mounted at:"
+      echo ${{inputs.prev_step_output}}
+      ls ${{inputs.prev_step_output}}
+    

@@ -24,7 +24,7 @@ arr = os.listdir(args.image_folder)
 print(arr)
 
 for filename in arr:
-    print("rotating file: %s ..." % filename)
+    print("rotating the file: %s ..." % filename)
     # with open(os.path.join(args.input_data, filename), "r") as handle:
     #     print(handle.read())
 

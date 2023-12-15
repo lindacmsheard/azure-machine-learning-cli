@@ -3,7 +3,20 @@ type: command
 
 name: compress_images
 display_name: Compress images
-version: 1
+version: 2
+description: |
+ # My component documentation
+ - bullet
+ - bullet
+
+ <hr />
+
+ ### Heading 3
+
+ > Indented
+
+ ## What else
+ - Checkboxes and emoji are not supported
 
 inputs:
   image_folder:

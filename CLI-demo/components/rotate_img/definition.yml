@@ -3,7 +3,7 @@ type: command
 
 name: rotate_images
 display_name: Rotate images
-version: 1
+version: 2
 
 inputs:
   image_folder:
