@@ -25,18 +25,18 @@ jobs:
   #       conda list >> outputs/conda-check.txt
   #   compute: azureml:gpu-cluster
 
-  sample_component:
-    type: command
-    component: file:../components/sample_component/definition.yml
-    inputs:
-      component_a_input_data:
-        type: uri_folder
-        path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
-        mode: ro_mount
-    outputs: 
-      component_a_output_data:     
-        mode: rw_mount
-    compute: azureml:ds2-git
+  # sample_component:
+  #   type: command
+  #   component: file:../components/sample_component/definition.yml
+  #   inputs:
+  #     component_a_input_data:
+  #       type: uri_folder
+  #       path: azureml://datastores/workspaceblobstore/paths/component-demo/images # ./testsampledata
+  #       mode: ro_mount
+  #   outputs: 
+  #     component_a_output_data:     
+  #       mode: rw_mount
+  #   compute: azureml:ds2-git
 
   rotate:
     type: command

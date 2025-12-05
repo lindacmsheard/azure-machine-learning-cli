@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lisheard/cmd/azuregig/azure-machine-learning-cli/CLI-demo/components/compress_img/src/mlruns/0/67fb82f1bc5b4a14859ca7056668ffc8/artifacts
+end_time: 1727943386829
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 67fb82f1bc5b4a14859ca7056668ffc8
+run_name: agreeable-grouse-731
+run_uuid: 67fb82f1bc5b4a14859ca7056668ffc8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727943386805
+status: 3
+tags: []
+user_id: lisheard

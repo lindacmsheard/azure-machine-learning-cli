@@ -3,20 +3,16 @@ type: command
 
 name: compress_images
 display_name: Compress images
-version: 2
+version: 3
 description: |
- # My component documentation
- - bullet
- - bullet
+ # Parameters
+ - image_folder
+ - new_size_ratio
+ - height
+ - width
 
  <hr />
 
- ### Heading 3
-
- > Indented
-
- ## What else
- - Checkboxes and emoji are not supported
 
 inputs:
   image_folder:

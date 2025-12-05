@@ -25,10 +25,9 @@ if [ $REPLY = 'y' ]; then
 
     echo "Setting defaults..."
 
-    az config set defaults.group=$RG
-    az config set defaults.location=$LOCATION
+    az configure --scope local -d group=$RG location=$LOCATION
 
-    az config get defaults
+    az configure --scope local --list-defaults
 else
     echo "exiting."
 fi
